@@ -73,10 +73,14 @@ class FlowBuilder<T> extends StatefulWidget {
   final List<NavigatorObserver> observers;
 
   @override
-  _FlowBuilderState<T> createState() => _FlowBuilderState<T>();
+  FlowBuilderState<T> createState() => FlowBuilderState<T>();
 }
 
-class _FlowBuilderState<T> extends State<FlowBuilder<T>> {
+/// {@template flow_builder_state}
+/// Exposed so that we can find the State used by navigation.
+///
+/// {@endtemplate}
+class FlowBuilderState<T> extends State<FlowBuilder<T>> {
   late FlowController<T> _controller;
 
   final _history = ListQueue<T>();

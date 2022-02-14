@@ -45,6 +45,7 @@ class FlowBuilder<T> extends StatefulWidget {
     this.onComplete,
     this.controller,
     this.observers = const <NavigatorObserver>[],
+    this.isRootNav = false,
   })  : assert(
           state != null || controller != null,
           'requires either state or controller',
@@ -71,6 +72,10 @@ class FlowBuilder<T> extends StatefulWidget {
 
   /// A list of [NavigatorObserver] for this [FlowBuilder].
   final List<NavigatorObserver> observers;
+
+  /// Set to true so that this root flow can't be popped via
+  /// system back button
+  final bool isRootNav;
 
   @override
   FlowBuilderState<T> createState() => FlowBuilderState<T>();
